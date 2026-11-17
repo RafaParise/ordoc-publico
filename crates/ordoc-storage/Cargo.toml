@@ -1,0 +1,16 @@
+[package]
+name = "ordoc-storage"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+ordoc-core = { path = "../ordoc-core" }
+ordoc-crypto = { path = "../ordoc-crypto" }
+# SQLCipher: as features do rusqlite ficam no Cargo.toml da raiz (bundled-sqlcipher-vendored-openssl).
+rusqlite.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

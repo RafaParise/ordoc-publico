@@ -1,0 +1,41 @@
+/* Site do Ordoc (estático, GitHub Pages). Paleta oficial do regras do projeto, regra 60-30-10. */
+:root {
+  --primaria: #2563EB; --base: #0F172A; --destaque: #0D9488;
+  --fundo: #F8FAFC; --card: #FFFFFF; --borda: #E2E8F0; --texto: #0F172A; --suave: #475569;
+  --sucesso: #10B981; --alerta: #F59E0B;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fundo: #090D16; --card: #1E293B; --borda: #334155; --texto: #E2E8F0; --suave: #94A3B8; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--fundo); color: var(--texto); line-height: 1.6;
+  font-family: Inter, "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--primaria); }
+header.topo { background: linear-gradient(135deg, #0F172A, #1E3A8A); color: #fff; padding: 40px 16px 32px; }
+header.topo a { color: #fff; }
+.miolo { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+nav.menu { display: flex; flex-wrap: wrap; gap: 16px; font-size: 15px; margin-bottom: 24px; }
+nav.menu a { text-decoration: none; opacity: .85; }
+nav.menu a:hover, nav.menu a[aria-current] { opacity: 1; text-decoration: underline; }
+.marca { display: flex; align-items: center; gap: 12px; font-size: 28px; font-weight: 700; }
+.marca svg { flex: none; }
+h1 { font-size: 30px; line-height: 1.25; margin: 16px 0 8px; }
+h2 { font-size: 21px; margin: 36px 0 8px; }
+.sub { font-size: 18px; opacity: .9; margin: 0; }
+main { padding: 8px 0 48px; }
+.cartao { background: var(--card); border: 1px solid var(--borda); border-radius: 14px; padding: 16px 20px; margin: 14px 0; }
+.cartao.destaque { border-left: 5px solid var(--destaque); }
+.grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.grade .cartao { margin: 0; }
+.cartao h3 { margin: 0 0 4px; font-size: 17px; }
+.aviso { font-size: 14px; color: var(--suave); }
+.mono, code { font-family: var(--mono); font-size: 14px; }
+.copia { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.copia code { background: var(--fundo); border: 1px solid var(--borda); border-radius: 8px; padding: 8px 10px; overflow-wrap: anywhere; flex: 1 1 260px; }
+button { font: inherit; border: 0; border-radius: 10px; padding: 10px 16px; background: var(--primaria); color: #fff; cursor: pointer; font-weight: 600; }
+.qr { width: 220px; max-width: 100%; height: auto; background: #fff; padding: 8px; border-radius: 12px; border: 1px solid var(--borda); }
+footer { border-top: 1px solid var(--borda); padding: 20px 0 40px; font-size: 14px; color: var(--suave); }
+ul.limpa { padding-left: 20px; }

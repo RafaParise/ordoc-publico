@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ordoc · Privacidade</title>
+  <meta name="description" content="Política de privacidade do Ordoc: o que fica no aparelho, o que sai e como apagar.">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="icon" href="icone.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="topo">
+  <div class="miolo">
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="apoiar.html">Apoiar</a>
+      <a href="privacidade.html" aria-current="page">Privacidade</a>
+      <a href="https://github.com/RafaParise/ordoc-publico">Código</a>
+    </nav>
+    <h1>Política de privacidade</h1>
+    <p class="sub">Versão de 16/11/2026. Em linguagem simples, como pede a LGPD (Lei 13.709/2018, art. 9º).</p>
+  </div>
+</header>
+<div class="miolo">
+<main>
+  <div class="cartao destaque">
+    <strong>Resumo:</strong> o Ordoc guarda tudo no seu aparelho, cifrado. Não tem conta no Ordoc, não tem anúncio,
+    não vende nem compartilha dado. Dado de aluno nunca vai para inteligência artificial online.
+  </div>
+
+  <h2>Quem é o responsável</h2>
+  <p>RafaParise (perfil no GitHub), desenvolvedor do Ordoc, pessoa física. Contato: <a href="https://github.com/RafaParise/ordoc-publico/issues">Issues do repositório</a>.
+     O Ordoc é independente e não oficial: não é da Secretaria da Educação nem de nenhum órgão público.</p>
+
+  <h2>O que fica só no seu aparelho</h2>
+  <ul class="limpa">
+    <li>O que o app lê dos sistemas que você abre com a sua conta (pendências, tarefas, frequência, envios para corrigir).</li>
+    <li>O banco do app, cifrado com uma chave guardada no cofre do próprio aparelho (Android Keystore / Windows).</li>
+    <li>O login dos sistemas oficiais: você digita a senha na página oficial, dentro do app; o Ordoc não lê nem guarda a
+        senha. Para não pedir login toda vez, o app guarda a sessão (os cookies) cifrada no aparelho.</li>
+    <li>O registro de uso do app (o que foi usado, quanto demorou, que erro deu), sem nome, nota, RA, e-mail ou CPF. Ele
+        não sai do aparelho.</li>
+  </ul>
+
+  <h2>O que pode sair do aparelho, e só se você quiser</h2>
+  <ul class="limpa">
+    <li><strong>IA online:</strong> só se você configurar uma. Antes de enviar, o app retira CPF, e-mail, telefone e os
+        nomes da sua lista de nomes protegidos (cadastre a lista: nome que não está nela pode passar). Na correção de
+        atividades, a resposta e a nota do estudante são avaliadas <strong>só</strong> pela IA do próprio aparelho, ou
+        por você; para a IA online vai no máximo o enunciado da atividade, para montar a rubrica.</li>
+    <li><strong>Painel do aluno:</strong> só se você gerar e publicar, num site estático escolhido por você (por exemplo,
+        o GitHub Pages). O site guarda só texto cifrado; a chave fica no link que você entrega ao estudante (a parte
+        depois do “#” nunca chega ao servidor). O conteúdo é dado do estudante: publique só com a autorização da escola.</li>
+    <li><strong>Envios aos sistemas oficiais</strong> (uma nota, uma correção): só com o seu “sim”, um por tarefa, e
+        para o próprio sistema oficial.</li>
+  </ul>
+
+  <h2>Sobre os dados dos estudantes</h2>
+  <p>Quem trata os dados dos seus estudantes é você, como professor, no exercício da sua função; a escola e a Secretaria
+     continuam responsáveis por eles. O Ordoc é uma ferramenta no seu aparelho: o projeto não recebe, não vê e não
+     guarda esses dados.</p>
+
+  <h2>O que o Ordoc nunca faz</h2>
+  <ul class="limpa">
+    <li>Não tem anúncio, rastreador, identificador do aparelho nem análise de comportamento.</li>
+    <li>Não vende, não aluga e não compartilha dado com ninguém.</li>
+    <li>Não marca presença de aula não dada nem altera hora, local ou rede.</li>
+  </ul>
+
+  <h2>Por quanto tempo e como apagar</h2>
+  <p>Os dados ficam no aparelho até você apagar. Para apagar tudo, desinstale o app (ou limpe os dados dele nas
+     configurações do aparelho): some o banco, os registros, as sessões e a chave. Se você publicou um painel do aluno,
+     ao despublicar ele troca de versão e o link antigo deixa de abrir.</p>
+
+  <h2>Seus direitos (LGPD, art. 18)</h2>
+  <p>Você pode pedir confirmação, acesso, correção e exclusão de dados. Como o Ordoc não recebe seus dados, quase
+     tudo se resolve no próprio aparelho; para dúvidas, abra uma <a href="https://github.com/RafaParise/ordoc-publico/issues">Issue no repositório</a>.</p>
+
+  <h2>Mudanças</h2>
+  <p>Se esta política mudar, a data no topo muda e a mudança fica registrada no repositório do código.</p>
+</main>
+<footer>Ordoc · código aberto (AGPL-3.0) · <a href="index.html">Início</a></footer>
+</div>
+</body>
+</html>

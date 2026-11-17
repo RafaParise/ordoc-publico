@@ -1,0 +1,18 @@
+[package]
+name = "ordoc-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+
+# Domínio puro: não depende de rede, banco nem dos parsers. Quem converte os tipos brutos do
+# ordoc-extract (RawStudentRecord, RawTaskStatus, BiTabularRow) nestes modelos é cada conector
+# (camada anticorrupção), e o erro de cada portal vira um ErroConector.
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true

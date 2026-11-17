@@ -1,0 +1,4 @@
+/target/
+/crates/ordoc-ui/target/
+/crates/ordoc-ui/dist/
+/.cargo/

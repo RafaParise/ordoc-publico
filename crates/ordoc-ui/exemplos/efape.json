@@ -1,0 +1,40 @@
+{
+  "semanas": [
+    {
+      "nome": "Exemplo - Desenvolvimento de Sistemas - Semana 1",
+      "percentual": 100.0,
+      "faltam": [],
+      "link": null
+    },
+    {
+      "nome": "Exemplo - Desenvolvimento de Sistemas - Semana 2",
+      "percentual": 60.0,
+      "faltam": ["Vídeo interativo 2 (faltam 2 perguntas)", "Questionário da semana"],
+      "link": "https://avaefape.educacao.sp.gov.br/my/"
+    },
+    {
+      "nome": "Exemplo - Programação - Semana 3",
+      "percentual": 0.0,
+      "faltam": ["Vídeo interativo 1", "Vídeo interativo 2", "Atividade final"],
+      "link": "https://avaefape.educacao.sp.gov.br/my/"
+    }
+  ],
+  "encontros": [
+    {
+      "titulo": "Multiplica SP - Pauta Formativa 7 (exemplo)",
+      "data": "2030-11-11",
+      "link": null,
+      "pesquisa_abre": "2030-11-12",
+      "pesquisa_fecha": "2030-11-17",
+      "pesquisa_feita": false
+    },
+    {
+      "titulo": "Multiplica SP - Pauta Formativa 8 (exemplo)",
+      "data": "2030-11-18",
+      "link": null,
+      "pesquisa_abre": "2030-11-19",
+      "pesquisa_fecha": "2030-11-24",
+      "pesquisa_feita": false
+    }
+  ]
+}

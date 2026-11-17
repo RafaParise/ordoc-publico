@@ -1,0 +1,21 @@
+[package]
+name = "ordoc-crypto"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+chacha20poly1305.workspace = true
+aes-gcm.workspace = true
+x25519-dalek.workspace = true
+blake3.workspace = true
+argon2.workspace = true
+zeroize.workspace = true
+rand_core.workspace = true
+hex.workspace = true
+rusqlite.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+keyring.workspace = true

@@ -1,0 +1,55 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/ordoc-crypto",
+    "crates/ia-nucleo",
+    "crates/ordoc-core",
+    "crates/ordoc-storage",
+]
+# Fora do workspace: a interface compila para WASM com o trunk (tem o próprio [workspace]).
+exclude = ["crates/ordoc-ui"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+authors = ["RafaParise"]
+license = "AGPL-3.0-only"
+
+[workspace.dependencies]
+# Runtime assincrono e paralelismo multi-core
+tokio = { version = "1.41", features = ["rt-multi-thread", "sync", "time", "macros", "fs", "net", "process"] }
+
+# Criptografia moderna ponta a ponta (E2EE) e higiene de memoria
+chacha20poly1305 = { version = "0.10", features = ["std"] }
+# AES-256-GCM só para o painel do aluno por link (o navegador decifra com a WebCrypto)
+aes-gcm = { version = "0.10", features = ["std"] }
+x25519-dalek = { version = "2.0", features = ["static_secrets", "zeroize"] }
+blake3 = "1.5"
+argon2 = "0.5"
+zeroize = { version = "1.8", features = ["derive"] }
+rand_core = { version = "0.6", features = ["getrandom"] }
+hex = "0.4"
+keyring = { version = "3.6", features = ["windows-native", "sync-secret-service"] }
+
+# Banco de dados local criptografado (AES-256 transparente)
+# O SQLCipher precisa da libcrypto do OpenSSL para o AES (é a única opção do libsqlite3-sys).
+# "vendored-openssl" compila o OpenSSL junto e liga estático: dispensa OpenSSL instalado no Windows e
+# no Android. A rede continua 100% rustls (regra 1 do CLAUDE.md); isto é só a cifra do banco.
+rusqlite = { version = "0.32", features = ["bundled-sqlcipher-vendored-openssl", "chrono"] }
+
+# Serializacao, erros e utilitarios
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+overflow-checks = true
+
+[profile.dev]
+opt-level = 1

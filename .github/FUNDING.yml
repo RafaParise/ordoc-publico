@@ -1,0 +1,5 @@
+# Botão "Sponsor" do GitHub (só aparece quando o repositório for público). Descomente depois de:
+#  1. ligar o GitHub Sponsors na conta pessoal (2FA, Stripe Connect, formulário W-8BEN; não tem custo);
+#  2. publicar o site com a página de apoio (Pix).
+# github: RafaParise
+# custom: ["https://rafaparise.github.io/ordoc-publico/apoiar.html"]

@@ -1,0 +1,38 @@
+{
+  "pedidos": [
+    {
+      "canal": "Fala SP",
+      "protocolo": "EX-0001",
+      "assunto": "Revisão do farol (exemplo)",
+      "aberto_em": "2030-11-05",
+      "situacao": "Respondida",
+      "respondido_em": "2030-11-12",
+      "resposta": "Resposta inventada para o exemplo: o pedido foi recebido e será analisado."
+    },
+    {
+      "canal": "Fala SP",
+      "protocolo": "EX-0002",
+      "assunto": "Aulas sem registro no painel (exemplo)",
+      "aberto_em": "2030-11-01",
+      "situacao": "Respondida",
+      "respondido_em": "2030-11-10",
+      "resposta": "Favor informar o número do protocolo anterior e anexar documento que comprove as aulas, para complementação."
+    },
+    {
+      "canal": "E-mail",
+      "protocolo": "EX-0003",
+      "assunto": "Pedido de reabertura de notas (exemplo)",
+      "aberto_em": "2030-10-28",
+      "situacao": "Respondida",
+      "respondido_em": "2030-11-03",
+      "resposta": "O pedido foi indeferido por estar fora do prazo do bimestre."
+    },
+    {
+      "canal": "Fala SP",
+      "protocolo": "EX-0004",
+      "assunto": "Cadastro de acesso (exemplo)",
+      "aberto_em": "2030-10-20",
+      "situacao": "Cadastrada"
+    }
+  ]
+}

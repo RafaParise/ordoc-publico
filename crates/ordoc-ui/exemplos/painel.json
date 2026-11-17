@@ -1,0 +1,71 @@
+{
+  "hoje": "2030-11-15",
+  "pendencias": [
+    {
+      "area": "PRESENCA_AULA",
+      "chave": "exemplo-aulas-brancas-out",
+      "origem": "SED_PROFESSOR_PRESENTE",
+      "titulo": "Aulas sem registro no painel (exemplo)",
+      "detalhe": "Exemplo: 6 aulas dadas e lançadas, mas brancas no painel.",
+      "acao": { "tipo": "PEDIR_AO_ORGAO", "canal": "FALA_SP", "orgao": "Diretoria de Ensino" },
+      "prazo": "2030-11-20"
+    },
+    {
+      "area": "LANCAMENTO_DIARIO",
+      "chave": "exemplo-registro-semana",
+      "origem": "DIARIO_SALA_DO_FUTURO",
+      "titulo": "Registro de aula da semana passada",
+      "detalhe": "Exemplo: 2 registros faltando; a janela do professor fecha em 5 dias.",
+      "acao": { "tipo": "LANCAR_COM_CONFIRMACAO", "prazo": "2030-11-17" }
+    },
+    {
+      "area": "FAROL",
+      "chave": "exemplo-farol",
+      "origem": "FALA_SP",
+      "titulo": "Farol da avaliação de desempenho",
+      "acao": { "tipo": "AGUARDAR_ORGAO", "protocolo": "EX-0001" },
+      "estado": { "estado": "AGUARDANDO_ORGAO" },
+      "bloqueia": ["exemplo-inscricao"],
+      "protocolos": [
+        {
+          "canal": "FALA_SP",
+          "numero": "EX-0001",
+          "aberto_em": "2030-11-05",
+          "assunto": "Revisão do farol",
+          "situacao": "Em análise",
+          "prazo_resposta": "2030-12-05"
+        }
+      ]
+    },
+    {
+      "area": "CADASTRO_ATRIBUICAO",
+      "chave": "exemplo-inscricao",
+      "origem": "ATRIBUICAO_ONLINE",
+      "titulo": "Inscrição para a atribuição de aulas",
+      "acao": { "tipo": "LANCAR_COM_CONFIRMACAO", "prazo": "2030-11-28" }
+    },
+    {
+      "area": "FORMACAO_EFAPE",
+      "chave": "exemplo-efape-semanas",
+      "origem": "EFAPE",
+      "titulo": "Duas semanas da formação com vídeo por terminar",
+      "acao": { "tipo": "LEVANTAR_SOZINHO" },
+      "prazo": "2030-11-30"
+    },
+    {
+      "area": "PAGAMENTO",
+      "chave": "exemplo-aulas-pagas",
+      "origem": "SOU_SP",
+      "titulo": "Conferir aulas pagas x dadas do mês (exemplo)",
+      "acao": { "tipo": "PERGUNTAR_AO_PROFESSOR", "pergunta": "o contracheque do mês já saiu?" }
+    },
+    {
+      "area": "PROTOCOLO",
+      "chave": "exemplo-cadastro-resolvido",
+      "origem": "FALA_SP",
+      "titulo": "Cadastro de acesso corrigido",
+      "acao": { "tipo": "LEVANTAR_SOZINHO" },
+      "estado": { "estado": "RESOLVIDA" }
+    }
+  ]
+}

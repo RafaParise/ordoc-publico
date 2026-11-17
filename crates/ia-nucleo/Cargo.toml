@@ -1,0 +1,30 @@
+[package]
+name = "ia-nucleo"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+
+# Núcleo genérico de IA (documentação interna, seção 4): higienização, motores OpenAI-compatíveis,
+# roteamento online/offline, validação de saída por esquema e memória com FTS5.
+# NÃO depende de nenhum crate do Ordoc e não tem domínio educacional: o Univo também usa.
+#
+# Rede: reqwest só com rustls (zero OpenSSL de rede, regra 1 do regras do projeto). O rusqlite é o do workspace
+# (SQLCipher embutido); a conexão vem de quem chama.
+[dependencies]
+blake3.workspace = true
+regex = "1.11"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
+rusqlite.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+# NFKC antes de procurar dado sensível (largura dupla, acento decomposto); Rust puro.
+unicode-normalization = "0.1"
+zeroize.workspace = true
+
+[dev-dependencies]
+# io-util: o servidor HTTP falso dos testes lê e escreve no TcpListener.
+tokio = { workspace = true, features = ["io-util"] }

@@ -1,0 +1,175 @@
+/* Ordoc — paleta oficial (regras do projeto, seção 4; regra 60-30-10). Sem fonte de fora: o app funciona offline. */
+:root {
+  --primaria: #2563EB;
+  --base: #0F172A;
+  --destaque: #0D9488;
+  --sucesso: #10B981;
+  --alerta: #F59E0B;
+  --critico: #EF4444;
+  --fundo: #F8FAFC;
+  --card: #FFFFFF;
+  --borda: #E2E8F0;
+  --texto: #0F172A;
+  --suave: #475569;
+  --lateral: #0F172A;
+  --lateral-texto: #E2E8F0;
+  --fonte: "Inter", "Plus Jakarta Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --fundo: #090D16; --card: #1E293B; --borda: #334155; --texto: #E2E8F0; --suave: #94A3B8;
+    --lateral: #0B1220; color-scheme: dark;
+  }
+}
+:root[data-tema="escuro"] {
+  --fundo: #090D16; --card: #1E293B; --borda: #334155; --texto: #E2E8F0; --suave: #94A3B8;
+  --lateral: #0B1220; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--fundo); color: var(--texto); font-family: var(--fonte); }
+body { font-size: 15px; line-height: 1.5; }
+.mono { font-family: var(--mono); font-size: .88em; }
+
+.casca { display: flex; min-height: 100vh; }
+.lateral {
+  width: 240px; flex: none; background: var(--lateral); color: var(--lateral-texto);
+  display: flex; flex-direction: column; gap: 2px; padding: 16px 10px; position: sticky; top: 0; height: 100vh;
+  overflow-y: auto; /* celular deitado: a tela é baixa e o menu passa da altura */
+}
+.marca { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; padding: 4px 8px 16px; }
+.menu-item, .tema {
+  text-align: left; background: transparent; color: inherit; border: 0; border-radius: 8px;
+  padding: 9px 12px; font: inherit; cursor: pointer;
+}
+.menu-item:hover { background: rgba(255,255,255,.07); }
+.menu-item.ativo { background: var(--primaria); color: #fff; font-weight: 600; }
+.tema { margin-top: auto; color: #94A3B8; font-size: 13px; }
+
+.conteudo { flex: 1; min-width: 0; padding: 24px 32px 48px; max-width: 1100px; }
+h1 { font-size: 22px; margin: 0 0 12px; }
+h2 { font-size: 17px; margin: 28px 0 10px; }
+h3 { font-size: 15.5px; margin: 0; }
+
+.fonte { font-size: 13px; color: var(--suave); margin: 0 0 12px; }
+.fonte.exemplo { color: #92400E; background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 8px; padding: 6px 10px; }
+.explica { color: var(--suave); max-width: 70ch; }
+.carregando { color: var(--suave); }
+.erro:empty { display: none; }
+.erro { color: var(--critico); font-weight: 600; }
+.meta { color: var(--suave); font-size: 13px; margin: 4px 0; overflow-wrap: anywhere; }
+.detalhe { color: var(--suave); margin: 6px 0; }
+.acao { margin: 8px 0 4px; }
+
+.resumo { display: flex; gap: 28px; align-items: center; background: var(--card); border: 1px solid var(--borda); border-radius: 14px; padding: 20px; }
+.anel {
+  --pct: 0; width: 132px; height: 132px; flex: none; border-radius: 50%;
+  background: conic-gradient(var(--destaque) calc(var(--pct) * 1%), var(--borda) 0);
+  display: grid; place-content: center; text-align: center; position: relative;
+}
+.anel::before { content: ""; position: absolute; inset: 12px; border-radius: 50%; background: var(--card); }
+.anel-num, .anel-txt { position: relative; }
+.anel-num { font-size: 28px; font-weight: 700; font-family: var(--mono); }
+.anel-txt { font-size: 12px; color: var(--suave); }
+.areas { flex: 1; display: grid; gap: 10px; }
+.area-topo { display: flex; justify-content: space-between; font-size: 13.5px; }
+.barra { height: 8px; background: var(--borda); border-radius: 99px; overflow: hidden; margin: 6px 0; }
+.barra-cheia { height: 100%; background: var(--destaque); border-radius: 99px; }
+
+.lista { display: grid; gap: 10px; }
+.item {
+  background: var(--card); border: 1px solid var(--borda); border-left: 5px solid var(--primaria);
+  border-radius: 12px; padding: 14px 16px;
+}
+.item header { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.item.vencido { border-left-color: var(--critico); }
+.item.vencendo { border-left-color: var(--alerta); }
+.item.bloqueia { border-left-color: #7C3AED; }
+.item.completa { border-left-color: var(--sucesso); }
+.item.entendi { border-left-color: var(--destaque); }
+.item ul { margin: 6px 0; padding-left: 20px; }
+.selo {
+  flex: none; font-size: 12px; padding: 2px 8px; border-radius: 99px; background: var(--fundo);
+  border: 1px solid var(--borda); white-space: nowrap;
+}
+.selo.destaque { background: var(--destaque); color: #fff; border-color: var(--destaque); font-weight: 700; }
+.travada { color: #7C3AED; font-size: 13px; margin: 4px 0 0; }
+.protocolos:empty { display: none; }
+.cadeias { padding-left: 20px; }
+
+blockquote { margin: 10px 0; padding: 8px 12px; border-left: 3px solid var(--borda); background: var(--fundo); border-radius: 0 8px 8px 0; }
+blockquote p { margin: 4px 0 0; }
+.replica { margin-top: 10px; }
+.rotulo { display: block; font-size: 13px; color: var(--suave); margin: 8px 0 4px; }
+textarea {
+  width: 100%; font: inherit; color: var(--texto); background: var(--card); border: 1px solid var(--borda);
+  border-radius: 10px; padding: 10px; resize: vertical;
+}
+.replica textarea { font-family: var(--mono); font-size: 13px; }
+details { margin-top: 8px; font-size: 13px; }
+
+.botao {
+  font: inherit; font-size: 14px; border: 1px solid var(--borda); background: var(--card); color: var(--texto);
+  border-radius: 10px; padding: 8px 14px; margin: 8px 8px 0 0; cursor: pointer;
+}
+.botao:hover { border-color: var(--primaria); }
+.botao.primario { background: var(--primaria); color: #fff; border-color: var(--primaria); font-weight: 600; }
+.pergunta { display: grid; gap: 8px; }
+.pergunta .botao { margin: 0 8px 0 0; }
+.resposta-ia { white-space: pre-wrap; margin: 8px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.chip {
+  font: inherit; font-size: 13px; border: 1px solid var(--borda); background: var(--card); color: var(--texto);
+  border-radius: 99px; padding: 5px 12px; cursor: pointer;
+}
+.chip:hover { border-color: var(--destaque); }
+
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.portal {
+  display: grid; gap: 4px; text-align: left; font: inherit; color: var(--texto); background: var(--card);
+  border: 1px solid var(--borda); border-radius: 12px; padding: 14px; cursor: pointer;
+}
+.portal:hover { border-color: var(--primaria); }
+.portal span { color: var(--suave); overflow-wrap: anywhere; }
+
+:focus-visible { outline: 2px solid var(--primaria); outline-offset: 2px; }
+
+@media (max-height: 520px) and (min-width: 761px) {
+  .lateral { width: 200px; padding: 8px; }
+  .marca { padding: 2px 8px 8px; font-size: 18px; }
+  .menu-item { padding: 6px 12px; }
+}
+
+@media (max-width: 760px) {
+  .casca { flex-direction: column; }
+  .lateral { width: auto; height: auto; position: static; flex-direction: row; flex-wrap: wrap; padding: 10px; }
+  .marca { padding: 4px 8px; width: 100%; }
+  .menu-item { padding: 6px 10px; font-size: 13.5px; }
+  .tema { margin-top: 0; }
+  .conteudo { padding: 16px; }
+  .resumo { flex-direction: column; align-items: stretch; }
+  .anel { align-self: center; }
+}
+
+/* Corrigir (Tarefa SP): resposta do estudante, sugestão da IA e o "sim" por tarefa */
+.tela-correcao .situacao { min-height: 1.2em; margin: 8px 0; }
+.grupo-tarefa { margin: 18px 0; }
+.grupo-tarefa h2 { font-size: 16px; margin: 0 0 2px; }
+.grupo-tarefa .item header { cursor: pointer; }
+.grupo-tarefa > .botao { width: 100%; margin-top: 6px; }
+.correcao-detalhe { margin-top: 8px; }
+.resposta-aluno {
+  white-space: pre-wrap; overflow-wrap: anywhere; background: var(--fundo); border: 1px solid var(--borda);
+  border-radius: 10px; padding: 10px 12px; font-size: 15px; line-height: 1.5; max-height: 50vh; overflow-y: auto;
+}
+.acoes { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.sugestao { border-left: 4px solid var(--sucesso); padding: 6px 10px; margin: 8px 0; background: var(--fundo); border-radius: 0 8px 8px 0; }
+.sugestao.atencao { border-left-color: var(--alerta); }
+.evidencias { margin: 6px 0; padding-left: 18px; font-size: 13px; }
+.evidencias mark { background: color-mix(in srgb, var(--destaque) 22%, transparent); color: inherit; border-radius: 3px; }
+.decisao { display: flex; align-items: center; gap: 16px; margin: 8px 0; }
+.decisao input[type=number] { width: 64px; font: inherit; font-size: 16px; padding: 6px; border: 1px solid var(--borda); border-radius: 8px; background: var(--card); color: var(--texto); }
+.decisao .incluir input { width: 20px; height: 20px; vertical-align: middle; }
+.confirmar { position: sticky; top: 0; z-index: 5; background: var(--card); border: 2px solid var(--primaria); border-radius: 12px; padding: 12px; margin: 10px 0; }
